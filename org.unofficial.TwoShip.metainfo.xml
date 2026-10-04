@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>org.unofficial.TwoShip</id>
+  <name>2 Ship 2 Harkinian</name>
+  <summary>Majora's Mask PC port (requires your own ROM)</summary>
+  <metadata_license>CC0-1.0</metadata_license>
+  <description>
+    <p>Unofficial Flatpak of 2 Ship 2 Harkinian, a PC port of The Legend of Zelda: Majora's Mask. It contains no copyrighted assets; you must supply a supported ROM.</p>
+  </description>
+  <url type="homepage">https://github.com/2ship2harkinian/2ship2harkinian</url>
+  <launchable type="desktop-id">org.unofficial.TwoShip.desktop</launchable>
+  <releases>
+    <release version="5.0.1" date="2026-08-25"/>
+  </releases>
+  <content_rating type="oars-1.1"/>
+</component>

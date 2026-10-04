@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Name=2 Ship 2 Harkinian
+Comment=Majora's Mask PC port (unofficial Flatpak)
+Exec=2ship
+Icon=org.unofficial.TwoShip
+Terminal=false
+Type=Application
+Categories=Game;

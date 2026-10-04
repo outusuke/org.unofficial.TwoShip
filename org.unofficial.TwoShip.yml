@@ -1,0 +1,39 @@
+app-id: org.unofficial.TwoShip
+runtime: org.freedesktop.Platform
+runtime-version: '25.08'
+sdk: org.freedesktop.Sdk
+command: 2ship
+
+finish-args:
+  - --share=ipc
+  - --share=network
+  - --socket=x11
+  - --socket=wayland
+  - --socket=fallback-x11
+  - --socket=pulseaudio
+  - --device=all
+
+modules:
+  - name: 2ship
+    buildsystem: simple
+    build-commands:
+      - chmod +x 2ship.appimage
+      - ./2ship.appimage --appimage-extract
+      - mkdir -p /app/2ship
+      - cp -a squashfs-root/usr/bin squashfs-root/usr/lib /app/2ship/
+      - rm -rf /app/2ship/bin/include /app/2ship/bin/lib
+      - install -Dm755 2ship-launcher.sh /app/bin/2ship
+      - install -Dm644 squashfs-root/2s2hIcon.png /app/share/icons/hicolor/512x512/apps/org.unofficial.TwoShip.png
+      - install -Dm644 org.unofficial.TwoShip.desktop /app/share/applications/org.unofficial.TwoShip.desktop
+      - install -Dm644 org.unofficial.TwoShip.metainfo.xml /app/share/metainfo/org.unofficial.TwoShip.metainfo.xml
+    sources:
+      - type: archive
+        url: https://github.com/2ship2harkinian/2ship2harkinian/releases/download/5.0.1/2Ship-Battler-Bravo-Linux.zip
+        sha256: 6cdd4fe06f3f9b095e99c86fef70b9265cc921fb6faa7ba1e18e94e90ed0b345
+        strip-components: 0
+      - type: file
+        path: 2ship-launcher.sh
+      - type: file
+        path: org.unofficial.TwoShip.desktop
+      - type: file
+        path: org.unofficial.TwoShip.metainfo.xml
